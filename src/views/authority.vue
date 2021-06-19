@@ -1,10 +1,12 @@
 <template>
     <div class="authority">
-        
+        <van-button type="primary">权限按钮</van-button>
     </div>
 </template>
 
 <script>
+// 按需引入
+import { Button } from 'vant'
 export default {
     // 局部指令，在当前组件内生效
     directives: {
@@ -17,6 +19,10 @@ export default {
                 // el.parentNode.removeChild(el);
             }
         }
+    },
+
+    components: {
+        [Button.name]: Button
     },
 
     data() {
