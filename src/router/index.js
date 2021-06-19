@@ -7,12 +7,18 @@ const routes = [
   {
     path: '/',
     name: 'Index',
-    component: () => import('../views/index.vue')
+    component: () => import('../views/index.vue'),
+    meta: {
+      title: '首页'
+    }
   },
   {
     path: '/authority',
     name:'Authority',
-    component: () => import('../views/authority.vue')
+    component: () => import('../views/authority.vue'),
+    meta: {
+      title: '权限控制'
+    }
   }
   
 ]
