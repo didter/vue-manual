@@ -1,12 +1,13 @@
 <template>
     <div class="authority">
-        <van-button type="primary">权限按钮</van-button>
+        <List header="Header" footer="Footer" border>
+            当前为新增权限的按钮：
+            <Button type="primary" v-has="'新增权限'">新增</Button>
+        </List>
     </div>
 </template>
 
 <script>
-// 按需引入
-import { Button } from 'vant'
 export default {
     // 局部指令，在当前组件内生效
     directives: {
@@ -14,20 +15,30 @@ export default {
             // 当被绑定元素插入到DOM时.....
             inserted(el, binding) {
                 const value = binding.value
+                let authorityList = {
+                    '新增权限': 'xxxxx'
+                }
                 console.log(value)
+                if(authorityList[value]) {
+                    console.log('有权限')
+                }else{
+                    el.parentNode.removeChild(el);
+                    console.log('无权限')
+                }
                 // 当前绑定元素的父元素移除当前子元素（被绑定元素自身）
-                // el.parentNode.removeChild(el);
             }
         }
     },
 
     components: {
-        [Button.name]: Button
+
     },
 
     data() {
         return {
+            authorityList: {
 
+            }
         }
     }
 }
