@@ -1,9 +1,7 @@
 <template>
     <div class="authority">
-        <List header="Header" footer="Footer" border>
-            当前为新增权限的按钮：
-            <Button type="primary" v-has="'新增权限'">新增</Button>
-        </List>
+        当前为新增权限的按钮：
+        <a type="primary" v-has="'新增权限'">新增</a>
     </div>
 </template>
 
