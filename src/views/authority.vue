@@ -1,7 +1,11 @@
 <template>
     <div class="authority">
-        当前为新增权限的按钮：
-        <a type="primary" v-has="'新增权限'">新增</a>
+        <div class="list">
+            当前为新增权限的按钮： <button v-has="'add'">新增</button>
+        </div>
+        <div class="list">
+            当前为删除权限的按钮： <button v-has="'del'">删除</button>
+        </div>
     </div>
 </template>
 
@@ -13,11 +17,9 @@ export default {
             // 当被绑定元素插入到DOM时.....
             inserted(el, binding) {
                 const value = binding.value
-                let authorityList = {
-                    '新增权限': 'xxxxx'
-                }
+                let authorityList = ['add']
                 console.log(value)
-                if(authorityList[value]) {
+                if(authorityList.includes(value)) {
                     console.log('有权限')
                 }else{
                     el.parentNode.removeChild(el);
