@@ -4,8 +4,10 @@
         <div class="list">Vuex中 Name 值：{{this.$store.state.name}}</div>
         <input type="text" v-model="name">
         <div class="button-box">
-            <button type="default" class="el-button" @click="setDefault">默认传值</button>
-            <button type="default" class="el-button" @click="setName">修改传值</button>
+            <button type="default" class="d-button" @click="setDefault">默认传值</button>
+            <button type="default" class="d-button" @click="setName">修改传值</button>
+            <button type="default" class="d-button" @click="setDefaultAsync">异步延迟默认修改</button>
+            <button type="default" class="d-button" @click="setNameWithParamAsync">异步延迟带参修改</button>
         </div>
     </div>
 </template>
@@ -40,6 +42,20 @@ export default {
             // 对象提交
             this.$store.commit({
                 type: 'changeNameWithParam',
+                name: this.name
+            })
+        },
+        // 异步延时设置
+        setDefaultAsync() {
+            this.$store.dispatch('changeNameAsync')
+        },
+        // 延时带参设置
+        setNameWithParamAsync() {
+            this.$store.dispatch('changeNameWithParamAsync', {
+                name: this.name
+            })
+            this.$store.dispatch({
+                type: 'changeNameWithParamAsync',
                 name: this.name
             })
         }

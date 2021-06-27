@@ -20,7 +20,28 @@ export default new Vuex.Store({
       state.name = payload.name
     }
   },
+  // 异步更改状态
   actions: {
+    // 无参
+    changeNameAsync(context) {
+      // 通过context.state来获取state中的变量
+      let _name = context.state.name
+      console.log(_name)
+      // 异步操作后修改
+      setTimeout(()=> {
+        context.commit('changeNameWithCurrent')
+      },1000)
+    },
+
+    // 带参
+    changeNameWithParamAsync(context, payload) {
+      // 异步修改
+      // 异步操作后修改
+      setTimeout(()=> {
+        context.commit('changeNameWithParam', payload)
+      },1000)
+    }
+    
   },
   modules: {
   }
