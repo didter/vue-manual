@@ -19,6 +19,14 @@ const routes = [
     meta: {
       title: '权限控制'
     }
+  },
+  {
+    path: '/vuex',
+    name:'Vuex',
+    component: () => import('../views/vuex.vue'),
+    meta: {
+      title: 'vuex 状态管理'
+    }
   }
   
 ]
