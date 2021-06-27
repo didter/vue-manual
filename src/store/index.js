@@ -43,6 +43,25 @@ export default new Vuex.Store({
     }
     
   },
+  // state 的派生状态（类似计算属性）
+  getters: { // 对state中相同字段的操作抽离
+    // 不带参数的getters
+    formatterName: state => {
+      let postfix = ''
+      if(state.name === '张三') {
+        postfix = '最棒'
+      }
+      return state.name + postfix
+    },
+    // 带参进行getters
+    customFormattrName: (state) => (val) => {
+      let postfix = ''
+      if(state.name !== '张三') {
+        postfix = val
+      }
+      return state.name + postfix
+    }
+  },
   modules: {
   }
 })

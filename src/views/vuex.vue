@@ -9,6 +9,8 @@
             <button type="default" class="d-button" @click="setDefaultAsync">异步延迟默认修改</button>
             <button type="default" class="d-button" @click="setNameWithParamAsync">异步延迟带参修改</button>
         </div>
+        <div class="list">不带参数getters得到的数据：{{this.$store.getters.formatterName}}</div>
+        <div class="list">传入当前页面Namegetters的到的数据：{{this.$store.getters.customFormattrName(name)}}</div>
     </div>
 </template>
 
